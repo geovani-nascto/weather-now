@@ -1,4 +1,4 @@
-const localSearchImput = document.getElementById('input-local-search');
+const localSearchInput = document.getElementById('input-local-search');
 const buttonLocalSearch = document.getElementById('btn-local-search');
 
 const currentDate = document.getElementById('current-date');
@@ -17,11 +17,14 @@ const apiKey = 'ddc1fd55d529ed5072927d0c0c03df6e';
 
 buttonLocalSearch.addEventListener('click', () => {
     //Fazer parte do enter tbm
-    let cityName = localSearchImput.value;
+    let cityName = localSearchInput.value;
     getCityWeather(cityName);
+    localSearchInput.value = "";
 })
 
-navigator.geolocation.getCurrentPosition(       (position) => {
+//buttonLocalSearch.addEventListener('keyup', enterKey);
+
+navigator.geolocation.getCurrentPosition((position) => {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude
     getCurrentLocationWeather(lat, lon);
@@ -63,7 +66,7 @@ function displayWeather(data){
     currentDate.innerText = formatDate(dt);
     currentLocal.textContent = name;
     weatherIcon.src = `/assets/img/${icon}.svg`
-    currentWeather.textContent = description;
+    currentWeather.textContent = firstUpperCase(description);
     currentTemperature.textContent = `${Math.round(temp)}°C`;
     windSpeed.textContent = `${Math.round(speed * 3.6)}km`;
     feelsLikeTemperature.textContent = `${Math.round(feels_like)}°C`;
@@ -86,5 +89,15 @@ function formatTime(epochTime){
 }
 
 function firstUpperCase(string){
-    //let string[0].toUp
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+// function enterKey(event){
+//     if(event.key === 'Enter'){
+//         let cityName = localSearchInput.value;
+//         getCityWeather(cityName);
+//         console.log(cityName)
+
+//         localSearchInput.value = "";
+//     }
+// }
