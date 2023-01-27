@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>Clima atual</title>
     <!-- ddc1fd55d529ed5072927d0c0c03df6e -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -11,45 +11,47 @@
 <body>
     <header>
         <div class="local-search">
-            <input class="header-input" type="text" name="" id="" placeholder="Pesquisar cidade...">
-            <button class="header-btn">
+            <input class="header-input" type="text" name="" id="input-local-search" placeholder="Pesquisar cidade...">
+            <button class="header-btn" id="btn-local-search">
                 <img class="header-btn-icon" src="assets/img/search-icon.svg" alt="Ícone de uma lupa">
             </button>
         </div>
-        <div class="current-date">Hoje</div>
-        <div class="current-city">Brasil</div>
+        <div class="current-date" id="current-date">Hoje</div>
+        <div class="current-city" id="current-local">Brasil</div>
     </header>
     <main>
-        <img class="weather-icon" src="assets/img/loading-icon.svg" alt="Ícone do tempo atual">
-        <div class="temperature-description">Carregando...</div>
+        <img class="weather-icon" src="assets/img/loading-icon.svg" alt="Ícone do tempo atual" aria-hidden="true" id="weather-icon">
+        <div class="temperature-description" id="current-weather">Carregando...</div>
         <div class="info-label">Tempo agora</div>
-        <div class="current-temperature">00°C</div>
+        <div class="current-temperature" id="current-temperature-celsius">00°C</div>
     </main>
     <section class="weather-infos">
         <section class="temperature-details">
             <div class="temperature-details-item">
                 <div class="temperature-label">Vento</div>
-                <div class="temperature-value">00km</div>
+                <div class="temperature-value" id="wind-speed">00km</div>
             </div>
             <div class="temperature-details-item">
                 <div class="temperature-label">Sensação</div>
-                <div class="temperature-value">00°C</div>
+                <div class="temperature-value" id="feels-like-temperature">00°C</div>
             </div>
             <div class="temperature-details-item">
                 <div class="temperature-label">Umidade</div>
-                <div class="temperature-value">00%</div>
+                <div class="temperature-value" id="current-humidity">00%</div>
             </div>
         </section>
         <section class="sunset-sunrise">
             <div class="sunset-sunrise-item">
                 <img class="sunset-sunrise-icon" src="assets/img/sunrise.svg" alt="Nascer do sol">
-                <div class="sunset-sunrise-value">05:40</div>
+                <div class="sunset-sunrise-value" id="sunrise-time">05:40</div>
             </div>
             <div class="sunset-sunrise-item">
                 <img class="sunset-sunrise-item" src="assets/img/sunset.svg" alt="Pôr do sol">
-                <div class="sunset-sunrise-value">18:56</div>
+                <div class="sunset-sunrise-value" id="sunset-time">18:56</div>
             </div>
         </section>
     </section>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
