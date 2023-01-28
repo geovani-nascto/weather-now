@@ -22,7 +22,8 @@ buttonLocalSearch.addEventListener('click', () => {
     localSearchInput.value = "";
 })
 
-//buttonLocalSearch.addEventListener('keyup', enterKey);
+
+localSearchInput.addEventListener('keyup', enterKey);
 
 navigator.geolocation.getCurrentPosition((position) => {
     let lat = position.coords.latitude;
@@ -92,12 +93,12 @@ function firstUpperCase(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// function enterKey(event){
-//     if(event.key === 'Enter'){
-//         let cityName = localSearchInput.value;
-//         getCityWeather(cityName);
-//         console.log(cityName)
+ function enterKey(event){
+     if(event.key === 'Enter'){
+         let cityName = localSearchInput.value;
+         getCityWeather(cityName);
+         console.log(cityName)
 
-//         localSearchInput.value = "";
-//     }
-// }
+         localSearchInput.value = "";
+     }
+ }
